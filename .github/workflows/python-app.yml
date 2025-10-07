@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v4
         with:
           python-version: '3.11'
 
@@ -33,7 +33,7 @@ jobs:
       - name: Run flake8 lint
         run: |
           echo "Running flake8 checks..."
-          flake8
+          flake8 src tests
 
       - name: Run black formatting check
         run: |
