@@ -1,0 +1,48 @@
+
+---
+
+## 🧱 `docs/architecture.md`
+
+```markdown
+# Architecture Overview
+
+## 🧩 Layered ETL Design
+
+The **ETL-Service-Pipeline** follows a service-oriented architecture structured into three core modules:
+
+### 1. Extractor
+- Handles data ingestion from APIs, databases, or flat files.
+- Uses asynchronous HTTP requests (`aiohttp`).
+- Error handling and retry logic implemented for reliability.
+
+### 2. Transformer
+- Processes, cleans, and normalizes incoming data.
+- Handles type conversions, missing data, and validation.
+- Supports pluggable transformation functions for scalability.
+
+### 3. Loader
+- Responsible for persisting transformed data.
+- Supports CSV, SQLite, and remote storage destinations.
+- Includes asynchronous and transactional write operations.
+
+### 4. Service Layer
+- Coordinates Extractor → Transformer → Loader.
+- Manages event loop lifecycle and logging.
+- Provides hooks for observability and monitoring.
+
+---
+
+## 🧠 Design Principles
+
+- **Separation of Concerns** — Each component has a single responsibility.
+- **Async I/O** — To improve performance during network-bound operations.
+- **Config-Driven** — All runtime behavior controlled via configuration.
+- **Scalable** — Easily extendable to multiple data sources.
+
+---
+
+## 🏗️ Future Enhancements
+
+- Add message queue support (Kafka/RabbitMQ)
+- Integrate Prometheus metrics
+- Add database pooling for high-load ETL jobs
