@@ -2,6 +2,8 @@
 
 Enterprise ETL Service Pipeline for extracting, transforming, and loading data from multiple sources into a database.
 
+[![codecov](https://codecov.io/gh/your-org/etl-service-pipeline/branch/main/graph/badge.svg)](https://codecov.io/gh/your-org/etl-service-pipeline)
+
 ## Features
 
 - Asynchronous extraction from multiple URLs
@@ -109,3 +111,15 @@ See also:
 - [Contributing](docs/contributing.md)
 - [Deployment](docs/deployment.md)
 - [Testing](docs/testing.md)
+
+## SOLID Principles
+
+This project follows SOLID principles:
+
+- **Single Responsibility**: Each module/class (Extractor, Transformer, Loader) has one responsibility.
+- **Open/Closed**: Modules are open for extension (e.g., new extractors/loaders) but closed for modification.
+- **Liskov Substitution**: Components can be replaced with subclasses without breaking the pipeline.
+- **Interface Segregation**: Classes expose only relevant methods; interfaces are not forced on clients.
+- **Dependency Inversion**: High-level modules depend on abstractions (e.g., passing session objects), not concrete implementations.
+
+See [docs/architecture.md](docs/architecture.md) for more details.
